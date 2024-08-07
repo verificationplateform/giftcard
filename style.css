@@ -63,7 +63,7 @@ form h2{
 }
 header{
     background-image: linear-gradient(rgba(255, 255, 255, 0.705),rgba(41, 41, 41, 0.2)),
-    url(Images/header.jpg);
+    url(header.jpg);
     padding-top: 35px;
     padding-bottom: 50px;
     background-repeat: no-repeat;
